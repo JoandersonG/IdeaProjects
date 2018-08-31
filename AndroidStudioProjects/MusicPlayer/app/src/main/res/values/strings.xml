@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="title_home">Início</string>
+    <string name="title_surf">Navegar</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_radio">Rádio</string>
+    <string name="title_library">Sua Biblioteca</string>
+</resources>

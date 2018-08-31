@@ -1,0 +1,286 @@
+<LinearLayout
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="1sp"
+    android:layout_gravity="end"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mainText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.85"
+        android:layout_gravity="end"
+        android:layout_marginTop="0sp"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textColor="#111"
+        android:textSize="41sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/secText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textSize="30sp"
+
+        />
+
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/clean"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/backButton2"
+            android:text="C"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/porcento"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/botao_calc2"
+            android:text="%"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/fatorial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/botao_calc2"
+            android:text="!"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/dividido"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/botao_calc2"
+            android:text="/"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/sete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="7"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/oito"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="8"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/nove"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="9"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/vezes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/botao_calc2"
+            android:text="*"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/quatro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="4"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/cinco"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="5"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/seis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="6"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/menos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/botao_calc2"
+            android:text="-"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/um"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:id="@+id/dois"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="2"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/tres"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/mais"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/botao_calc2"
+            android:text="+"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/ponto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:background="@drawable/numeros"
+            android:text="."
+
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/zero"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="0"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/maismenos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/numeros"
+            android:text="+/-"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/igual"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/backButton2"
+            android:text="="
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+</LinearLayout>

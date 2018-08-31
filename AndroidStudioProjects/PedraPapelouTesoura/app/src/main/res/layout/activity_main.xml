@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.joanderson.pedrapapeloutesoura.MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+
+            android:text="Escolha do App"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/imageResultado"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/padrao" />
+
+        <TextView
+        android:id="@+id/textResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+
+        android:text="Escolha uma opção abaixo"
+        android:textAlignment="center" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"  >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:onClick="selecionarPedra"
+                app:srcCompat="@drawable/pedra" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:onClick="selecionarPapel"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/papel" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:onClick="selecionarTesoura"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/tesoura" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
