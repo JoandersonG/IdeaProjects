@@ -1,6 +1,7 @@
 
 public class OperationTree {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         //main for tests, not supposed to be in the final codes
         String op="30+12";
         Node root = new Node();

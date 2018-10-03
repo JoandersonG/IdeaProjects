@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/home/joanderson/PersonalProjects/EclipseProjects/.metadata/.plugins/org.eclipse.jdt.core
+1879490543.index
+2877135302.index

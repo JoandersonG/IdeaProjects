@@ -1,0 +1,9 @@
+package entities;
+
+public class PessoaJuridica {
+
+	public PessoaJuridica() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
