@@ -6,27 +6,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.joanderson.calculadora.treePackage.OperationTree;
+
 public class MainActivity extends AppCompatActivity {
 
-    double x=0,y=0,op1=0,resultAnt=0;
-    int sFlag=0,flag=0;
-    boolean flag2=false,jaApertouUmaOp=false;
-    //flag2: se false, então não imprima no principal, só no sec. Se true, no principal e remove do sec.
-    //x: primeiro operando
-    //y: segundo operando
-    String s,saver;
-    char op;
+    private OperationTree tree = new OperationTree();
+    private String mainScreen = "";
+    private int currentNumber = 0;
+    private char lastDigit = ' ';
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
+
         final Button button1 = findViewById(R.id.um);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                operador(1);
-                imprime();
+                operation(1);
+                imprime('n');
             }
         });
 
@@ -34,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(2);
-                imprime();
+                operation(2);
+                imprime('n');
             }
         });
 
@@ -43,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(3);
-                imprime();
+                operation(3);
+                imprime('n');
             }
         });
 
@@ -52,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(4);
-                imprime();
+                operation(4);
+                imprime('n');
             }
         });
 
@@ -61,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(5);
-                imprime();
+                operation(5);
+                imprime('n');
             }
         });
 
@@ -70,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(6);
-                imprime();
+                operation(6);
+                imprime('n');
             }
         });
 
@@ -79,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(7);
-                imprime();
+                operation(7);
+                imprime('n');
             }
         });
 
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(8);
-                imprime();
+                operation(8);
+                imprime('n');
             }
         });
 
@@ -97,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(9);
-                imprime();
+                operation(9);
+                imprime('n');
             }
         });
 
@@ -106,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operador(0);
-                imprime();
+                operation(0);
+                imprime('n');
             }
 
         });
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         buttonc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                op=' ';
+                imprime('c');
             }
         });
 
@@ -156,18 +158,8 @@ public class MainActivity extends AppCompatActivity {
         buttonMais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                op='+';
-                if(flag==2){
-                    //se a flag é 2, ou seja, (x + y), e a pessoa digitou uma operação, então
-                    //resolvo a operação, coloco em x, zero y e volto com a flag para 1 e imprimo
-                    x=operacao(x,y);
-                    y=0;
-                    flag=1;
-                }
-                else{
-                    flag++;
-                }
-                imprime();
+                operation('+');
+                imprime('o');
             }
         });
 
@@ -175,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
         buttonMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                op='-';
-                flag++;
+                operation('-');
+                imprime('o');
             }
         });
 
@@ -184,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
         buttonVezes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                op='*';
-                flag++;
+                operation('*');
+                imprime('o');
             }
         });
 
@@ -193,8 +185,8 @@ public class MainActivity extends AppCompatActivity {
         buttonDividido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                op='/';
-                flag++;
+                operation('/');
+                imprime('o');
             }
         });
 
@@ -203,109 +195,140 @@ public class MainActivity extends AppCompatActivity {
         buttonEq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                imprime('e');
             }
         });
     }
 
-    public void operador (long numDig){
-       if(flag==0) {
-           if (x <= 99999999999999L) {
-               x = (x * 10) + numDig;
-           }
-       }
-       else {
-           if (y <= 99999999999999L) {
-               y = (y * 10) + numDig;
-           }
-       }
-    }
-    /*
-    public void impressaoMain (){
-        final TextView mainText = findViewById(R.id.mainText);
-            mainText.setText(s);
-    }
-    */
-    public boolean valida(){
-        return s.matches("\\d{1,}[+ | - | * | / | ! | %]\\d{1,}");
-    }
 
-    public void imprime(){
-        TextView mainText = findViewById(R.id.mainText);
-        if(flag>=2){
-            TextView secText = findViewById(R.id.secText);
-            double result = operacao(x,y);
-            secText.setText(String.valueOf(result));
+    private void operation(char op) {
+
+
+
+        tree.insertNode(currentNumber);
+
+        //if (lastDigit == 'o') {
+        if (mainScreen.matches(".*[^0-9]")) {
+            // último dígito foi um op
+            // tree.replaceLastOperation(op);
+            //todo: consertar os erros disso
+            mainScreen = mainScreen.substring(0,mainScreen.length()-1);
+            tree.removeLastAddedNode();
         }
-        switch (flag){
-            case 0:
-                s=String.valueOf(x);
-                mainText.setText(s);
-                break;
-            case 1:
-                s=String.valueOf(x)+op;
-                mainText.setText(s);
-                break;
-            case 2:
-                s=String.valueOf(x)+op+String.valueOf(y);
-                mainText.setText(s);
-                break;
-            case 3:
-                //resultado
-                s="="+String.valueOf(operacao(x,y));
+        else {
+            mainScreen += String.valueOf(op);
+        }
+        tree.insertNode(op);
+        currentNumber = 0;
+        //lastDigit = 'o';
 
+    }
+
+    private void operation(int num) {
+
+        mainScreen += String.valueOf(num);
+        //preciso guardar all of the número digitado
+        currentNumber = currentNumber * 10 + num;
+        //lastDigit = 'n';
+
+    }
+
+/*
+    private void imprime() {
+
+        final TextView mainView = findViewById(R.id.mainText);
+        mainView.setText(mainScreen);
+        if (lastDigit == 'n') {
+            tree.insertNode(currentNumber);
+        }
+
+        if (mainScreen.matches(".*[0-9]+[^0-9][0-9]+")) {
+            double res = tree.calculateTree();
+            final TextView secView = findViewById(R.id.secText);
+            String result = "= " + String.valueOf(res);
+            secView.setText(result);
+        }
+        if(lastDigit == 'n'){
+            tree.removeLastAddedNode();
         }
     }
-    public double operacao(double k,double z){
-        //só mande para operacoes() se valida() for true
-        switch (op){
-            case '+':
-                return k+z;
-            case '-':
-                return k-z;
-            case '*':
-                return k*z;
-            case '/':
-                return k/z;
-            case '!':
-             //   return fatorial(k);
-            case '%':
-             //   return porcentagem(k,z);
+*/
+
+    private void imprime(char op) {
+
+        final TextView mainView = findViewById(R.id.mainText);
+        final TextView secView = findViewById(R.id.secText);
+
+        switch (op) {
+            case 'c':
+                mainScreen = "";
+                currentNumber = 0;
+                lastDigit = ' ';
+                secView.setText("");
+                mainView.setText("");
+                tree = new OperationTree();
+                break;
+            case 'e':
+                if(mainScreen.matches(".*[^0-9]")) {
+                    //todo: imprimir erro no balãozinho
+                }
+                else {
+                    if (lastDigit == 'n') {
+                        tree.insertNode(currentNumber);
+                    }
+                    //String result = "= " + String.valueOf(tree.calculateTree());
+                    //mainView.setText(result);
+                    double res = tree.calculateTree();
+                    String result;
+                    if (mainScreen.matches(".*[/].*")) {
+                        result = "= " + String.valueOf(res);
+                    }
+                    else {
+                        result = "= " +String.valueOf((long) res);
+                    }
+                    mainView.setText(result);
+                    secView.setText("");
+                }
+                break;
+
+            case 'o':
+                mainView.setText(mainScreen);
+                secView.setText("");
+                break;
+
+            case 'n':
+
+                mainView.setText(mainScreen);
+                tree.insertNode(currentNumber);
+                if (mainScreen.matches(".*[0-9]+[^0-9][0-9]+")) {
+
+                    double res = tree.calculateTree();
+                    String result;
+                    if (mainScreen.matches(".*[/].*")) {
+                        result = "= " + String.valueOf(res);
+                    }
+                    else {
+                        result = "= " +String.valueOf((long) res);
+                        //todo: consertar formatação condicional
+                    }
+
+                    secView.setText(result);
+                }
+                tree.removeLastAddedNode();
+                break;
         }
-        return -111;
-    }
-    /*
-    public void soma (long x,long y){
-       long result = x+y;
-       if(flag2) {//imprime no principal
-           final TextView mainText = findViewById(R.id.mainText);
-           mainText.setText("=" + String.valueOf(result));
-
-           final TextView secText = findViewById(R.id.secText);
-           secText.setText(" ");
-       }
-       else {//imprime no secundário
-           final TextView secText = findViewById(R.id.secText);
-           secText.setText(String.valueOf(result));
-       }
-    }
-    */
-    /*
-    public double fatorial (double k){
-
     }
 
-    public double porcentagem (double k, double z){
+    //todo: o que acontece se apagar mais de um operador?
 
-    }
-    public void maismenos (){
+    //todo: mudar string para view ficar ...2312+432 e tals quando exceder tamanho da view
 
-    }
+    //todo: definir tamanho máximo de um operando
 
-    public void floatpoint (){
+    //todo: não pode receber op como primeiro elemento da árvore
 
-    }
-    */
-    //------------------------------------------------------------------------------
-
+    //todo: outro otão cleaner
 }
+
+
+

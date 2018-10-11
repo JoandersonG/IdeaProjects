@@ -1,14 +1,13 @@
-package com.example.joanderson.calculadora;
+package com.example.joanderson.calculadora.treePackage;
 
 /**
  * Created by joanderson on 12/08/18.
  */
 
-public class Node{
+public abstract class Node{
     private Node left;
     private Node right;
     private Node father;
-    private String value;
 
     public void setLeft(Node left){
         this.left=left;
@@ -28,10 +27,5 @@ public class Node{
     public Node getFather(){
         return this.father;
     }
-    public void setValue(String value){
-        this.value=value;
-    }
-    public String getValue(){
-        return this.value;
-    }
+
 }
