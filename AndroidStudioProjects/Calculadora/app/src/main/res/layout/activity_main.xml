@@ -8,22 +8,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="1sp"
     android:layout_gravity="end"
+    android:background="@color/backgroundColor"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/mainText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.85"
         android:layout_gravity="end"
         android:layout_marginTop="0sp"
+        android:layout_weight="0.85"
         android:text=""
         android:textAlignment="viewEnd"
-        android:textColor="#111"
-        android:textSize="41sp"
-        android:textStyle="bold" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/mainView"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/secText"
@@ -34,9 +34,9 @@
         android:layout_marginBottom="5sp"
         android:text=""
         android:textAlignment="viewEnd"
-        android:textSize="30sp"
+        android:textColor="@color/mainView"
 
-        />
+        android:textSize="30sp" />
 
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -49,40 +49,44 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/backButton2"
-            android:text="C"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:background="@drawable/igual_clear"
+            android:text="c"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/porcento"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/botao_calc2"
+            android:background="@drawable/operadores"
             android:text="%"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/fatorial"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/botao_calc2"
+            android:background="@drawable/operadores"
             android:text="!"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/dividido"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/botao_calc2"
+            android:background="@drawable/operadores"
             android:text="/"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -99,8 +103,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="7"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/oito"
@@ -109,8 +114,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="8"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/nove"
@@ -119,18 +125,20 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="9"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/vezes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/botao_calc2"
+            android:background="@drawable/operadores"
             android:text="*"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -147,8 +155,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="4"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/cinco"
@@ -157,8 +166,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="5"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/seis"
@@ -167,18 +177,20 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="6"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/menos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/botao_calc2"
+            android:background="@drawable/operadores"
             android:text="-"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -195,10 +207,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="1"
-            android:textSize="18sp"
-            android:textStyle="bold"
-
-            />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/dois"
@@ -207,8 +218,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="2"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/tres"
@@ -217,18 +229,20 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="3"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/mais"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/botao_calc2"
+            android:background="@drawable/operadores"
             android:text="+"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>
@@ -247,8 +261,9 @@
             android:background="@drawable/numeros"
             android:text="."
 
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/zero"
@@ -257,8 +272,9 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="0"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/maismenos"
@@ -267,18 +283,20 @@
             android:layout_weight="1"
             android:background="@drawable/numeros"
             android:text="+/-"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/numbers"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/igual"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/backButton2"
+            android:background="@drawable/igual_clear"
             android:text="="
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>

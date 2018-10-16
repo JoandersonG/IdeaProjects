@@ -4,7 +4,7 @@ public class NumNode extends Node {
 
     private double value;
 
-    public NumNode(int value) {
+    public NumNode(double value) {
         this.value = value;
     }
 

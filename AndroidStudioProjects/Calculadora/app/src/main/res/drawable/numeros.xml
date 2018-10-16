@@ -1,4 +1,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/botao_calc_pressionado" android:state_pressed="true" /> <!-- pressionado -->
-    <item android:drawable="@drawable/botao_calc" /> <!-- normal-->
+    <item android:drawable="@drawable/numbers_pressed" android:state_pressed="true" /> <!-- pressionado -->
+    <item android:drawable="@drawable/numbers" /> <!-- normal-->
 </selector>

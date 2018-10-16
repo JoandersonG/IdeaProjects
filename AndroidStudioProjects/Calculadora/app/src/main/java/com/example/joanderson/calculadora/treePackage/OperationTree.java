@@ -1,8 +1,6 @@
 package com.example.joanderson.calculadora.treePackage;
 
-
-
-
+import java.util.Stack;
 
 public class OperationTree {
 
@@ -10,18 +8,26 @@ public class OperationTree {
     private OpNode lastOpNode;
     private NumNode lastNumNode;
     private Node lastAddedNode;
+    //private Stack<Node> rootStack;
 
     public OperationTree() {
         tree = new Tree();
+   //     rootStack = new Stack<>();
     }
 
     public boolean isEmpty() {
         return tree.isEmpty();
     }
 
-    public void insertNode(int key) {
+    public void addNode(double key) {
         NumNode node = new NumNode(key);
+/*
+        if (tree.getRoot().getClass() == ParenNode.class) {
+            rootStack.add(tree.getRoot());
+            lastAddedNode
 
+        }
+*/
         if (isEmpty()) {
             tree.setRoot(node);
         }
@@ -34,7 +40,15 @@ public class OperationTree {
         tree.addSize();
     }
 
-    public void insertNode(char key) {
+    public void addNode(char key) {
+        
+  /*      
+        if (key == '(') {//olhar isso
+            ParenNode pn = new ParenNode();
+            rootStack.add(tree.getRoot());
+            tree.setRoot(n);
+        }
+*/
         OpNode node = new OpNode(key);
 
         if (key == '+' || key == '-' || lastOpNode == null || (lastOpNode.getValue() == '*' || lastOpNode.getValue() == '/' )) {

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#4C5E6E</color>
-    <color name="colorPrimaryDark">#1F63A1</color>
+    <color name="colorPrimaryDark">#FF183850</color>
     <color name="colorAccent">#060606</color>
     <color name="backButton1">#00171F</color>
-    <color name="backButton2">#A1251F</color>
+    <color name="cleanAndEqual">#A1251F</color>
+    <color name="backgroundColor">#183850</color>
+    <color name="numbers">#c06070</color>
+    <color name="mainView">#b0d8e8</color>
+    <color name="operator">#000000</color>
 </resources>

@@ -8,12 +8,17 @@ import android.widget.TextView;
 
 import com.example.joanderson.calculadora.treePackage.OperationTree;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
+
+    Locale locale = Locale.US;
+
     private OperationTree tree = new OperationTree();
-    private String mainScreen = "";
-    private int currentNumber = 0;
-    private char lastDigit = ' ';
+    private String mainScreen = "",currentNumberDecimal = "0.";
+    private double currentNumber = 0;
+    private boolean decimalFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
         buttonPonto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                operation('p');
+                imprime('n');
             }
         });
 
@@ -203,57 +209,57 @@ public class MainActivity extends AppCompatActivity {
 
     private void operation(char op) {
 
+        if (op == 'p') {
 
-
-        tree.insertNode(currentNumber);
-
-        //if (lastDigit == 'o') {
-        if (mainScreen.matches(".*[^0-9]")) {
-            // último dígito foi um op
-            // tree.replaceLastOperation(op);
-            //todo: consertar os erros disso
-            mainScreen = mainScreen.substring(0,mainScreen.length()-1);
-            tree.removeLastAddedNode();
+            //if (mainScreen.matches(".*[.].*|.*[^0-9]") || mainScreen.matches("")) {
+            //if (mainScreen.matches("") || mainScreen.matches(".*[^[^0-9]&&[^.]][0-9]+|.*[[^0-9]&&[^.]][0-9]+"))
+            //if(mainScreen.matches(".*[.][0-9]*|.*[[^0-9]&&[^.]][0-9]*[.][0-9]*")) {
+            //if(mainScreen.matches(".*[.][0-9]*") || mainScreen.matches("")) {
+            if(mainScreen.matches(".*[[^0-9]&&[^.]]") || mainScreen.matches("")) {
+                mainScreen += "0";
+            }
+            if (mainScreen.matches(".*[[^0-9]&&[^.]][0-9]*|[0-9]*")) {
+                mainScreen += ".";
+                decimalFlag = true;
+            }
+            return;
         }
-        else {
+
+        if (mainScreen.matches("[0-9].*")) {
+
+            tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+
+
+            if (mainScreen.matches(".*[[^0-9]&&[^.]]")) {
+                // último dígito foi um op
+
+                mainScreen = mainScreen.substring(0,mainScreen.length()-1);
+                tree.removeLastAddedNode();
+            }
+
             mainScreen += String.valueOf(op);
+            tree.addNode(op);
+            currentNumber = 0;
         }
-        tree.insertNode(op);
-        currentNumber = 0;
         //lastDigit = 'o';
+        decimalFlag = false;
+        currentNumberDecimal = "0.";
 
     }
 
     private void operation(int num) {
 
         mainScreen += String.valueOf(num);
-        //preciso guardar all of the número digitado
-        currentNumber = currentNumber * 10 + num;
-        //lastDigit = 'n';
+        if (decimalFlag) {
+            currentNumberDecimal += String.valueOf(num);
+        }
+        else {
+            currentNumber = currentNumber * 10 + num;
+        }
 
     }
 
-/*
-    private void imprime() {
-
-        final TextView mainView = findViewById(R.id.mainText);
-        mainView.setText(mainScreen);
-        if (lastDigit == 'n') {
-            tree.insertNode(currentNumber);
-        }
-
-        if (mainScreen.matches(".*[0-9]+[^0-9][0-9]+")) {
-            double res = tree.calculateTree();
-            final TextView secView = findViewById(R.id.secText);
-            String result = "= " + String.valueOf(res);
-            secView.setText(result);
-        }
-        if(lastDigit == 'n'){
-            tree.removeLastAddedNode();
-        }
-    }
-*/
-
+    //todo:  documentação
     private void imprime(char op) {
 
         final TextView mainView = findViewById(R.id.mainText);
@@ -263,32 +269,33 @@ public class MainActivity extends AppCompatActivity {
             case 'c':
                 mainScreen = "";
                 currentNumber = 0;
-                lastDigit = ' ';
+                currentNumberDecimal = "0.";
+                decimalFlag = false;
+                //lastDigit = ' ';
                 secView.setText("");
                 mainView.setText("");
                 tree = new OperationTree();
                 break;
             case 'e':
-                if(mainScreen.matches(".*[^0-9]")) {
+                if(mainScreen.matches(".*[^0-9]|[0-9]*[.][0-9]*|[0-9]*")) {//|| mainScreen.matches("[0-9]*[.][0-9]* | [0-9]*")) {
                     //todo: imprimir erro no balãozinho
                 }
                 else {
-                    if (lastDigit == 'n') {
-                        tree.insertNode(currentNumber);
-                    }
-                    //String result = "= " + String.valueOf(tree.calculateTree());
-                    //mainView.setText(result);
+                    tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+
                     double res = tree.calculateTree();
                     String result;
-                    if (mainScreen.matches(".*[/].*")) {
-                        result = "= " + String.valueOf(res);
+                    //if (mainScreen.matches(".*[/].*") || mainScreen.matches(".*[.].*")) {
+                    if (String.valueOf(res).matches(".*[.0]") ) {
+                        result = "= " +String.valueOf((long) res);
                     }
                     else {
-                        result = "= " +String.valueOf((long) res);
+                        result = "= " + String.valueOf(res);
                     }
                     mainView.setText(result);
                     secView.setText("");
                 }
+
                 break;
 
             case 'o':
@@ -299,23 +306,26 @@ public class MainActivity extends AppCompatActivity {
             case 'n':
 
                 mainView.setText(mainScreen);
-                tree.insertNode(currentNumber);
-                if (mainScreen.matches(".*[0-9]+[^0-9][0-9]+")) {
-
+                tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+                if (mainScreen.matches(".*[0-9]+[[^0-9]&&[^.]][0-9]+.*")) {
                     double res = tree.calculateTree();
                     String result;
-                    if (mainScreen.matches(".*[/].*")) {
-                        result = "= " + String.valueOf(res);
+
+                    if (String.valueOf(res).matches(".*[.0]") ) {
+                        result = "= " +String.valueOf((long) res);
                     }
                     else {
-                        result = "= " +String.valueOf((long) res);
-                        //todo: consertar formatação condicional
+                        result = "= " + String.valueOf(res);
                     }
 
                     secView.setText(result);
                 }
                 tree.removeLastAddedNode();
                 break;
+            case 'p':
+                mainView.setText(mainScreen);
+                //todo: terminar isso também
+
         }
     }
 
