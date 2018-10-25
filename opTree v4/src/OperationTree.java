@@ -5,7 +5,6 @@ import java.util.Stack;
 public class OperationTree {
 
     private Tree tree;
-    //private Node root;
     private OpNode lastOpNode;
     private Node lastNumNode;
     private Node lastAddedNode;
@@ -23,11 +22,17 @@ public class OperationTree {
 
     public void addNode(double key) {
         NumNode node = new NumNode(key);
+/*
+        if (tree.getRoot().getClass() == ParenNode.class) {
+            rootStack.add(tree.getRoot());
+            lastAddedNode
+
+        }
+*/
         if(isParen) {
             //tou num parênteses
             ParenNode pn = (ParenNode) lastAddedNode;
             pn.addNo(key);
-            lastAddedNode = pn;
             return;
         }
         if (isEmpty()) {
@@ -43,37 +48,56 @@ public class OperationTree {
     }
 
     public void addNode(char key) {
-
+        
+  /*      
+        if (key == '(') {//olhar isso
+            ParenNode pn = new ParenNode();
+            rootStack.add(tree.getRoot());
+            tree.setRoot(n);
+        }
+*/
         if (key == '(') {
             ParenNode node = new ParenNode();
-
-            if (isEmpty()) {
+            /*
+            if (lastOpNode == null || (lastOpNode.getValue() == '*' || lastOpNode.getValue() == '/')) {
+                //se torna raiz
+                node.setLeft(tree.getRoot());
+                tree.getRoot().setFather(node);
                 tree.setRoot(node);
             }
-            else if (lastOpNode == null) {
-                //árvore só tem uma raiz que é parênteses
-                ParenNode parenNode = (ParenNode) lastAddedNode;
-                parenNode.addNo('(');
+            else if (lastNumNode == tree.getRoot()) {
+                //é '*' ou '/'
+                //só tem um número que é raiz
+                node.setLeft(tree.getRoot());
+                tree.getRoot().setFather(node);
+                tree.setRoot(node);
             }
             else {
-                lastOpNode.setRight(node);
-                node.setFather(lastOpNode);
+                lastNumNode.getFather().setRight(node);
+                lastNumNode.setFather(node);
+                node.setLeft(lastNumNode);
             }
             isParen = true;
             lastAddedNode = node;
+            //lastOpNode = node;
+            /*
+            */
+            if (isEmpty()) {
+                tree.setRoot(node);
+            }
+            else{
+                lastOpNode.setRight(node);
+                node.setFather(lastOpNode);
+            }
+             isParen = true;
+            lastAddedNode = node;
             lastNumNode = node;
+            //*/
             return;
         }
 
         if (key == ')') {
-            ParenNode pn = (ParenNode) lastAddedNode;
-            if (pn.isParen()) {
-                //parênteses dentro do parênteses
-                pn.addNo(')');
-            }
-            else {
-                isParen = false;
-            }
+            isParen = false;
             return;
         }
 
@@ -247,10 +271,6 @@ public class OperationTree {
         }
         tree.subSize();
         */
-    }
-
-    public boolean isIsParen() {
-        return isParen;
     }
 
     public double calculateTree() {

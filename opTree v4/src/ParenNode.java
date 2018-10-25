@@ -8,6 +8,7 @@ public class ParenNode extends Node {
     public ParenNode() {
         subTree = new OperationTree();
     }
+
     public char getValue(){
         return this.value;
     }
@@ -30,9 +31,5 @@ public class ParenNode extends Node {
 
     public boolean isEmpty() {
         return subTree.isEmpty();
-    }
-
-    public boolean isParen() {
-        return this.subTree.isIsParen();
     }
 }

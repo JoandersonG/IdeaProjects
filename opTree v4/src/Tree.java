@@ -6,15 +6,12 @@
 
  class Tree {
     private Node root;
-    private int size;
-
     public Tree() {
         this(null);
     }
 
     public Tree(Node root) {
         this.root = root;
-        this.size = 0;
     }
 
     public Node getRoot() {
@@ -25,20 +22,7 @@
         this.root = root;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void addSize() {
-        this.size++;
-    }
-
-    public void subSize() {
-        this.size--;
-    }
-
     public boolean isEmpty() {
-        //return root == null || root.getClass() == ParenNode.class;
-        return root == null;
+        return root == null || root.getClass() == ParenNode.class;
     }
 }
