@@ -58,30 +58,7 @@ public class OperationTree {
 */
         if (key == '(') {
             ParenNode node = new ParenNode();
-            /*
-            if (lastOpNode == null || (lastOpNode.getValue() == '*' || lastOpNode.getValue() == '/')) {
-                //se torna raiz
-                node.setLeft(tree.getRoot());
-                tree.getRoot().setFather(node);
-                tree.setRoot(node);
-            }
-            else if (lastNumNode == tree.getRoot()) {
-                //é '*' ou '/'
-                //só tem um número que é raiz
-                node.setLeft(tree.getRoot());
-                tree.getRoot().setFather(node);
-                tree.setRoot(node);
-            }
-            else {
-                lastNumNode.getFather().setRight(node);
-                lastNumNode.setFather(node);
-                node.setLeft(lastNumNode);
-            }
-            isParen = true;
-            lastAddedNode = node;
-            //lastOpNode = node;
-            /*
-            */
+
             if (isEmpty()) {
                 tree.setRoot(node);
             }
@@ -160,28 +137,9 @@ public class OperationTree {
                 isParen = false;
             }
             else {
-                // tenho que remover um elemento dentro da árvore do parênteses
                 pn.removerUltimoNo();
             }
 
-
-            /*
-
-            isParen = false;
-            lastAddedNode = lastAddedNode.getFather();
-            if (lastAddedNode != null) {
-                lastAddedNode.setRight(null);
-                lastNumNode = lastAddedNode.getLeft();
-            }
-            else {
-                lastNumNode = lastAddedNode;
-            }
-            if (lastNumNode != null) {
-                while (lastNumNode.getRight()!= null) {
-                    lastNumNode = lastNumNode.getRight();
-                }
-            }
-            */
         }
 
         else if (lastAddedNode.getClass() == ParenNode.class && !isParen) {
@@ -241,36 +199,6 @@ public class OperationTree {
             lastAddedNode = lastAddedNode.getLeft();
         }
 
-
-
-
-
-/*
-        if (lastAddedNode == lastNumNode) {
-            //tenho que remover um número
-            if(lastNumNode != tree.getRoot()) {
-                lastNumNode.getFather().setRight(null);
-            }
-            else{
-                tree.setRoot(null);
-            }
-        }
-        else {
-            //tenho que remover um Operador
-
-            if (lastOpNode == tree.getRoot()) {
-                //é a raiz
-                tree.setRoot(tree.getRoot().getLeft());
-            }
-            else {
-                //é um '*' ou '/' pelo meio da árvore
-                lastOpNode.getFather().setRight(lastOpNode.getLeft());
-                lastOpNode.getLeft().setFather(lastOpNode.getFather());
-            }
-
-        }
-        tree.subSize();
-        */
     }
 
     public double calculateTree() {
