@@ -2,16 +2,23 @@ package com.example.joanderson.calculadora.treePackage;
 
 public class OpNode extends Node {
 
-    private char value;
+    private Node left;
+    private Node right;
 
-    public OpNode(char value) {
-        this.value = value;
+    OpNode(char op) {
+        super(op);
     }
 
-    public void setValue(char value){
-        this.value=value;
+    public void setLeft(Node left){
+        this.left=left;
     }
-    public char getValue(){
-        return this.value;
+    public void setRight(Node right){
+        this.right=right;
+    }
+    public Node getLeft(){
+        return this.left;
+    }
+    public Node getRight(){
+        return this.right;
     }
 }

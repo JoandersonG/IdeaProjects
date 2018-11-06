@@ -1,19 +1,11 @@
-public class TimesNode {
+public class TimesNode extends OpNode{
 
-    private Node left;
-    private Node right;
+    public TimesNode() {
+        super('*');
+    }
 
-    public void setLeft(Node left){
-        this.left=left;
-    }
-    public void setRight(Node right){
-        this.right=right;
-    }
-    public Node getLeft(){
-        return this.left;
-    }
-    public Node getRight(){
-        return this.right;
+    public char getValue(){
+        return super.value;
     }
 
 }

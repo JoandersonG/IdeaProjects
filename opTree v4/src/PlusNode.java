@@ -1,19 +1,12 @@
-public class PlusNode extends Node {
+public class PlusNode extends OpNode {
 
-    private Node left;
-    private Node right;
+    public PlusNode() {
+        super('+');
+    }
 
-    public void setLeft(Node left){
-        this.left=left;
+    public char getValue(){
+        return super.value;
     }
-    public void setRight(Node right){
-        this.right=right;
-    }
-    public Node getLeft(){
-        return this.left;
-    }
-    public Node getRight(){
-        return this.right;
-    }
+
 
 }

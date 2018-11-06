@@ -2,16 +2,23 @@
 
 public class OpNode extends Node {
 
+    private Node left;
+    private Node right;
 
-    private char value;
+    OpNode(char op) {
+        super(op);
+    }
 
-    public OpNode(char value) {
-        this.value = value;
+    public void setLeft(Node left){
+        this.left=left;
     }
-    public void setValue(char value){
-        this.value=value;
+    public void setRight(Node right){
+        this.right=right;
     }
-    public char getValue(){
-        return this.value;
+    public Node getLeft(){
+        return this.left;
+    }
+    public Node getRight(){
+        return this.right;
     }
 }

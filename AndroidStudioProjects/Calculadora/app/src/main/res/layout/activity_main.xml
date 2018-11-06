@@ -50,6 +50,48 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/igual_clear"
+            android:text="HISTÓRICO"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/porcento"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/operadores"
+            android:text="%"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/dividido"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/operadores"
+            android:text="/"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/operator"
+            android:textSize="24sp" />
+
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/clean"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/igual_clear"
             android:text="c"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/operator"
@@ -90,6 +132,8 @@
 
 
     </android.support.v7.widget.LinearLayoutCompat>
+
+
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"

@@ -1,152 +1,303 @@
 package com.example.joanderson.calculadora.treePackage;
 
-import java.util.Stack;
-
 public class OperationTree {
-
-    private Tree tree;
-    private OpNode lastOpNode;
-    private NumNode lastNumNode;
-    private Node lastAddedNode;
-    //private Stack<Node> rootStack;
+    private Node root;
+    private Integer size;
+    private Boolean isParenthesis = false;
 
     public OperationTree() {
-        tree = new Tree();
-   //     rootStack = new Stack<>();
+        this.root = null;
+        this.size = 0;
+    }
+
+    public OperationTree(Node root) {
+        this.root = root;
+        this.size = 1;
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
     }
 
     public boolean isEmpty() {
-        return tree.isEmpty();
+        return this.size == 0;
     }
 
-    public void addNode(double key) {
-        NumNode node = new NumNode(key);
-/*
-        if (tree.getRoot().getClass() == ParenNode.class) {
-            rootStack.add(tree.getRoot());
-            lastAddedNode
-
-        }
-*/
-        if (isEmpty()) {
-            tree.setRoot(node);
-        }
-        else{
-            lastOpNode.setRight(node);
-            node.setFather(lastOpNode);
-        }
-        lastAddedNode = node;
-        lastNumNode = node;
-        tree.addSize();
+    public Node lastAddedNode() {
+        return lastAddedNode(this.root);
     }
 
-    public void addNode(char key) {
-        
-  /*      
-        if (key == '(') {//olhar isso
+    private Node lastAddedNode(Node root) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.getValue() == 'n' || root.getValue() == '(') {
+            //it's a parenthesis or a number
+            return root;
+        }
+
+        //it's an operator
+        OpNode node = (OpNode) root;
+        if (node.getRight() == null) {
+            return node;
+        }
+
+        return lastAddedNode(node.getRight());
+    }
+
+    public void addNode(double number) {
+        if (isParenthesis) {
+
+            //last added node is a parenthesis
+
+            ((ParenNode) lastAddedNode()).addNo(number);
+            return;
+        }
+
+        NumNode node = new NumNode(number);
+
+        if (lastAddedNode() == null) {
+            root = node;
+            return;
+        }
+
+
+        //then last added node is an operator
+
+        Node lastAdded = lastAddedNode();
+        node.setFather(lastAdded);
+        ((OpNode) lastAdded).setRight(node);
+    }
+
+    public void addNode(char operation) {
+
+        if(isParenthesis && operation != ')') {
+            ParenNode pn = (ParenNode) lastAddedNode();
+            pn.addNo(operation);
+            return;
+        }
+
+        if (operation == '(') {
             ParenNode pn = new ParenNode();
-            rootStack.add(tree.getRoot());
-            tree.setRoot(n);
-        }
-*/
-        OpNode node = new OpNode(key);
-
-        if (key == '+' || key == '-' || lastOpNode == null || (lastOpNode.getValue() == '*' || lastOpNode.getValue() == '/' )) {
-            //se torna raiz
-            node.setLeft(tree.getRoot());
-            tree.getRoot().setFather(node);
-            tree.setRoot(node);
-        }
-        else if (lastNumNode == tree.getRoot()) {
-            //é '*' ou '/'
-            //só tem um número que é raiz
-            node.setLeft(tree.getRoot());
-            tree.getRoot().setFather(node);
-            tree.setRoot(node);
-        }
-	    else {
-            lastNumNode.getFather().setRight(node);
-            lastNumNode.setFather(node);
-            node.setLeft(lastNumNode);
+            addParenNode(pn);
+            isParenthesis = true;
+            return;
         }
 
-        lastAddedNode = node;
-        lastOpNode = node;
-        tree.addSize();
+        if (operation == '+' || operation == '-') {
+            OpNode op = new OpNode(operation);
+            addPlusSubNode(op);
+            return;
+        }
+
+        if (operation == '*' || operation == '/') {
+            OpNode op = new OpNode(operation);
+            addDivideMultiNode(op);
+            return;
+        }
+
+        //it's a parenthesis closure
+
+        ParenNode pn = (ParenNode) lastAddedNode();
+
+        if (pn.lastAddedNode().getValue() == '(') {
+
+            // if last added node was a parenthesis and inside it the last added node as a parenthesis
+
+            pn.addNo(')');
+            return;
+        }
+
+        //then this is the last opened parenthesis
+
+        isParenthesis = false;
+
     }
 
-    public void removeLastAddedNode() {
-        if (lastAddedNode == lastNumNode) {
-            //tenho que remover um número
-            if(lastNumNode != tree.getRoot()) {
-                lastNumNode.getFather().setRight(null);
-            }
-            else{
-                tree.setRoot(null);
-            }
+    private void addParenNode(ParenNode node) {
+        this.size++;
+        if (root == null) {
+            root = node;
+            return;
+        }
+
+        // lastAddedNode is necessarily an OpNode
+        OpNode last = (OpNode) lastAddedNode();
+        last.setRight(node);
+        node.setFather(last);
+    }
+
+    private void addNumNode(NumNode node) {
+        this.size++;
+        if (root == null) {
+            root = node;
+            return;
+        }
+
+        // lastAddedNode is necessarily an OpNode
+        OpNode last = (OpNode) lastAddedNode();
+        last.setRight(node);
+        node.setFather(last);
+    }
+
+    private void addPlusSubNode(OpNode node) {
+
+        //the way add and subtraction nodes work in the tree is similar to each other
+
+        this.size++;
+        if (root == null) {
+            root = node;
+            return;
+        }
+        // always becomes the root
+        root.setFather(node);
+        node.setLeft(root);
+        root = node;
+        return;
+    }
+
+    private void addDivideMultiNode(OpNode node) {
+        //the way divide and multiplication nodes work in the tree is similar to each other
+        this.size++;
+        if (root == null) {
+            root = node;
+            return;
+        }
+
+        //last added node is a number or parenthesis
+
+        Node lastAddedNode = lastAddedNode();
+        node.setFather(lastAddedNode.getFather());
+        OpNode lan = (OpNode) lastAddedNode.getFather();
+        if (lan != null) {
+            lan.setRight(node);
         }
         else {
-            //tenho que remover um Operador
-
-            if (lastOpNode == tree.getRoot()) {
-                //é a raiz
-                tree.setRoot(tree.getRoot().getLeft());
-            }
-            else {
-                //é um '*' ou '/' pelo meio da árvore
-                lastOpNode.getFather().setRight(lastOpNode.getLeft());
-                lastOpNode.getLeft().setFather(lastOpNode.getFather());
-            }
-
+            root = node;
         }
-        tree.subSize();
+        lastAddedNode.setFather(node);
+        node.setLeft(lastAddedNode);
+
     }
 
     public double calculateTree() {
-        return calculateTree(tree.getRoot());
+
+        return calculateTree(this.root);
+
     }
 
-    private double calculateTree(Node root) {
+    private double calculateTree(Node root){
+
         if (root == null) {
             return 0;
         }
-        if(root.getClass() == OpNode.class) {
-            OpNode opn =  (OpNode) root;
-            return calculateTree(opn);
-        }
-        else {
-            NumNode nn =  (NumNode) root;
-            return calculateTree(nn);
-        }
-    }
 
-    private double calculateTree(NumNode root) {
-        if (root == null) {
-            System.out.println("Erro: NumNode null");
-            return 0;
+        if (root.getValue() == '(') {
+            return ((ParenNode) root).resultado();
         }
-        return root.getValue();
-    }
 
-    private double calculateTree(OpNode root) {
-        if (root == null) {
-            System.out.println("Erro: OpNode null");
-            return 0;
+        if (root.getValue() == 'n') {
+            return ((NumNode) root).getNumber();
         }
+
+        //it's an operator
+
+        double result = calculateTree(((OpNode) root).getLeft());
 
         switch (root.getValue()) {
             case '+':
-                return calculateTree(root.getLeft()) + calculateTree(root.getRight());
+                return result += calculateTree(((OpNode) root).getRight());
             case '-':
-                return calculateTree(root.getLeft()) - calculateTree(root.getRight());
+                return result -= calculateTree(((OpNode) root).getRight());
             case '*':
-                return calculateTree(root.getLeft()) * calculateTree(root.getRight());
+                return result *= calculateTree(((OpNode) root).getRight());
             case '/':
-                return calculateTree(root.getLeft()) / calculateTree(root.getRight());
+                return result /= calculateTree(((OpNode) root).getRight());
             default:
                 return 0;
         }
     }
 
-}
+    public boolean removeLastAddedNode() {
 
+        if (root == null) {
+            return false;
+        }
+
+        Node lastAdded = lastAddedNode();
+        this.size--;
+
+        if (isParenthesis && ((ParenNode) lastAdded).removerUltimoNo()){
+
+            //last added node into the parenthesis was removed successfully
+
+            return true;
+        }
+
+        if (isParenthesis) {
+            //last added node is an empty parenthesis
+            OpNode op = (OpNode) lastAdded.getFather();
+            lastAdded.setFather(null);
+            if (op != null) {
+                op.setRight(null);
+            }
+            else {
+                //one member in the tree
+                root = null;
+            }
+            isParenthesis = false;
+            return true;
+        }
+
+        if (lastAdded.getValue() == 'n') {
+            //last added node is a number
+            OpNode op = (OpNode) lastAdded.getFather();
+            lastAdded.setFather(null);
+            if (op != null) {
+                op.setRight(null);
+            }
+            else {
+                //one member in the tree
+                root = null;
+            }
+            return true;
+        }
+
+        if (lastAdded.getValue() == '(') {
+            //last added node was an ')'
+            isParenthesis = true;
+            return true;
+        }
+
+        if (lastAdded.getValue() == '+' || lastAdded.getValue() == '-') {
+            root = (((OpNode) lastAdded).getLeft());
+            ((OpNode) lastAdded).setLeft(null);
+            root.setFather(null);
+            return true;
+        }
+
+        //then it's '*' or '/'
+
+        OpNode op = (OpNode) lastAdded.getFather();
+        if (op != null) {
+            op.setRight(((OpNode)lastAdded).getLeft());
+        }
+        else {
+            root = ((OpNode) lastAdded).getLeft();
+        }
+        ((OpNode) lastAdded).getLeft().setFather(op);
+
+        lastAdded.setFather(null);
+        ((OpNode) lastAdded).setLeft(null);
+
+        return true;
+        // TODO: refactor o nome da árvore
+
+    }
+
+}

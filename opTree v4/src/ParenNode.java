@@ -1,16 +1,14 @@
-//package com.example.joanderson.calculadora.treePackage;
-
 public class ParenNode extends Node {
 
-    private final char value = '(';
-    private OperationTree subTree;
+    private Tree subTree;
 
     public ParenNode() {
-        subTree = new OperationTree();
+        super('(');
+        subTree = new Tree();
     }
 
     public char getValue(){
-        return this.value;
+        return super.value;
     }
 
     public double resultado() {
@@ -25,8 +23,12 @@ public class ParenNode extends Node {
         subTree.addNode(key);
     }
 
-    public void removerUltimoNo() {
-        subTree.removeLastAddedNode();
+    public Node lastAddedNode() {
+        return subTree.lastAddedNode();
+    }
+
+    public boolean removerUltimoNo() {
+        return subTree.removeLastAddedNode();
     }
 
     public boolean isEmpty() {
