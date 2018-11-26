@@ -1,4 +1,4 @@
-package entities;
+package bar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -8,12 +8,28 @@ public class Movimento {
     private Calendar dataAbertura;
     private Calendar dataFechamento;
     private int status;
-    private ArrayList<Pedido> pedidos;
+    private ArrayList <Pedido> pedidos;
+    private  ArrayList <Cliente> clientes;
 
     public Movimento(int mesa, Calendar dataAbertura) {
         this.mesa = mesa;
         this.dataAbertura = dataAbertura;
         this.status = 0;
+        this.pedidos = new ArrayList<>();
+        this.clientes = new ArrayList<>();
+    }
+
+    public void addCliente(Cliente c) {
+        clientes.add(c);
+    }
+
+    public void removeCliente(int id) {
+        for (Cliente c : clientes) {
+            if (c.getId() == id) {
+                clientes.remove(c);
+                break;
+            }
+        }
     }
 
     public int getMesa() {
@@ -56,6 +72,14 @@ public class Movimento {
         this.pedidos = pedidos;
     }
 
+    public void addPedido(Pedido p) {
+        pedidos.add(p);
+    }
+
+    public void removePedido(Pedido p) {
+        pedidos.remove(p);
+    }
+
     public void pagar(Calendar dataFechamento) {
         this.dataFechamento = dataFechamento;
         this.status = 1;
@@ -64,5 +88,20 @@ public class Movimento {
     public void fechar(Calendar dataFechamento) {
         this.dataFechamento = dataFechamento;
         this.status = 9;
+    }
+
+    @Override
+    public String toString() {
+
+        String ret = "Mesa: " + mesa + "\nData de abertura: " + dataAbertura + "\nData de fechamento: " + dataFechamento + "\nStatus: " + status;
+        ret += "\nPedidos: ";
+        for (Pedido p : pedidos) {
+            ret += "\n" + p.toString();
+        }
+        ret += "\nClientes: ";
+        for (Cliente c: clientes) {
+            ret += "\n" + c.toString();
+        }
+        return ret;
     }
 }

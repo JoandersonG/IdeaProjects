@@ -74,6 +74,7 @@ public class OperationTree {
         ((OpNode) lastAdded).setRight(node);
     }
 
+
     public void addNode(char operation) {
 
         if(isParenthesis && operation != ')') {

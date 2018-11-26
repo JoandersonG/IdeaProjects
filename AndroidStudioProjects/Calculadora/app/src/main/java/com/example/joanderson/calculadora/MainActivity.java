@@ -7,8 +7,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.joanderson.calculadora.treePackage.OperationTree;
+import com.example.joanderson.calculadora.enums.Operacao;
 
 import java.util.Locale;
+
+import static com.example.joanderson.calculadora.enums.Operacao.MAISMENOS;
+import static com.example.joanderson.calculadora.enums.Operacao.PONTO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,15 +22,12 @@ public class MainActivity extends AppCompatActivity {
     private OperationTree tree = new OperationTree();
     private String mainScreen = "",currentNumberDecimal = "0.";
     private double currentNumber = 0;
-    private boolean decimalFlag = false;
+    private Boolean decimalFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
 
 
         final Button button1 = findViewById(R.id.um);
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         buttonPonto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operation('p');
+                operation(Operacao.PONTO);
                 imprime('n');
             }
         });
@@ -140,11 +141,11 @@ public class MainActivity extends AppCompatActivity {
         buttonMaisMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                operation(MAISMENOS);
             }
         });
 
-        final Button buttonFatorial = findViewById(R.id.fatorial);
+        final Button buttonFatorial = findViewById(R.id.fechaParen);
         buttonFatorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Button buttonPorcento = findViewById(R.id.porcento);
+        final Button buttonPorcento = findViewById(R.id.abreParen);
         buttonPorcento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,14 +208,189 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void operation(char op) {
+    public boolean test(); //testa se entrada é válida
+    public boolean imprime(); //salva na string da tela e imprime
+    public void operacao(); //
 
-        if (op == 'p') {
+    public boolean testePonto() {}
 
-            //if (mainScreen.matches(".*[.].*|.*[^0-9]") || mainScreen.matches("")) {
-            //if (mainScreen.matches("") || mainScreen.matches(".*[^[^0-9]&&[^.]][0-9]+|.*[[^0-9]&&[^.]][0-9]+"))
-            //if(mainScreen.matches(".*[.][0-9]*|.*[[^0-9]&&[^.]][0-9]*[.][0-9]*")) {
-            //if(mainScreen.matches(".*[.][0-9]*") || mainScreen.matches("")) {
+    public void printInScreen() {
+
+    }
+
+
+
+    //Define o que deve ser feito a depender do botão digitado
+    private void operation(int num) {
+        mainScreen += String.valueOf(num);
+        if (decimalFlag) {
+            currentNumberDecimal += String.valueOf(num);
+        }
+        else {
+            currentNumber = currentNumber * 10 + num;
+        }
+        tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+        //if (mainScreen.matches(".*[0-9]+[[^0-9]&&[^.]][0-9]+.*")) {
+        if (mainScreen.matches(".*[0-9]+[[^0-9]&&[^.]][0-9]+")) {
+            // regex: tem número, operadorMatematico e termina com numero
+            double res = tree.calculateTree();
+            String result;
+            if (String.valueOf(res).matches(".*[.0]") ) {
+                result = "= " +String.valueOf((long) res);
+            }
+            else {
+                result = "= " + String.valueOf(res);
+            }
+
+            auxiliarView = result;
+        }
+        tree.removeLastAddedNode();
+
+    }
+    public void operation(Operacao operacao) {
+
+        switch(operacao) {
+            case MAIS:
+                //igual ao próximo, não precisa do break
+            case MENOS:
+                //igual ao próximo, não precisa do break
+            case VEZES:
+                //igual ao próximo, não precisa do break
+            case DIVIDIDO:
+                if (mainScreen.matches("[0-9].*")) {
+                    //regex: testa se há número(s)
+
+                    tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+                    if (mainScreen.matches(".*[[^0-9]&&[^.]]")) {
+                        // último dígito foi um op
+
+                        mainScreen = mainScreen.substring(0,mainScreen.length()-1);
+                        tree.removeLastAddedNode();
+                    }
+
+                    mainScreen += String.valueOf(operacao.operadorMatematico());
+                    tree.addNode(operacao.operadorMatematico());
+                    currentNumber = 0;
+                }
+                auxiliarView = "";
+                decimalFlag = false;
+                currentNumberDecimal = "0.";
+                break;
+
+            case PONTO:
+                if(mainScreen.matches(".*[[^0-9]&&[^.]]") || mainScreen.matches("")) {
+                    //regex: algo terminando em operadorMatematico || String vazio
+                    mainScreen += "0";
+                }
+                if (mainScreen.matches(".*[[^0-9]&&[^.]][0-9]*|[0-9]*")) {
+                //if (mainScreen.matches(".*[0-9]")) {
+                    //regex:
+                    mainScreen += ".";
+                    decimalFlag = true;
+                }
+                break;
+
+            case IGUAL:
+                if(mainScreen.matches(".*[^0-9]|[0-9]*[.][0-9]*|[0-9]*")) {//|| mainScreen.matches("[0-9]*[.][0-9]* | [0-9]*")) {
+                    //todo: imprimir erro no balãozinho:operação não permitida
+                }
+                else {
+                    tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+
+                    double res = tree.calculateTree();
+                    String result;
+                    if (String.valueOf(res).matches(".*[.0]") ) {
+                        //regex: não tem valor na parte decimal
+                        result = String.valueOf((long) res);
+                    }
+                    else {
+                        result = String.valueOf(res);
+                    }
+                    mainScreen = result;
+                    auxiliarView = "";
+                    tree = new OperationTree();
+                    tree.addNode(res);
+                }
+
+                break;
+
+            case CLEAR:
+                mainScreen = "";
+                auxiliarView = "";
+                currentNumber = 0;
+                currentNumberDecimal = "0.";
+                decimalFlag = false;
+                tree = new OperationTree();
+                break;
+
+            case MAISMENOS:
+                if (mainScreen.matches(".*[[^.]&&[^0-9]]") || mainScreen.matches("")) {
+                    tree.addNode('(');
+                    currentNumber = ...
+                }
+                else {// termina com um número
+                    String auxiliarString = mainScreen.substring(mainScreen.lastIndexOf(Double.toString(currentNumber)),mainScreen.length()); //ou seria menos 1?
+                    mainScreen = mainScreen.substring(0,mainScreen.lastIndexOf(Double.toString(currentNumber)));
+                    currentNumber = -currentNumber;
+                    mainScreen += currentNumber;
+                    mainScreen += auxiliarString;
+                    tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+                    if (mainScreen.matches(".*[0-9]+[[^0-9]&&[^.]][0-9]+")) {
+                        // regex: tem número, operadorMatematico e termina com numero
+                        double res = tree.calculateTree();
+                        String result;
+                        if (String.valueOf(res).matches(".*[.0]") ) {
+                            result = String.valueOf((long) res);
+                        }
+                        else {
+                            result = String.valueOf(res);
+                        }
+
+                        auxiliarView = result;
+                    }
+                    tree.removeLastAddedNode();
+                }
+
+                break;
+
+            case ABRE_PARENTESES:
+                tree.addNode('(');
+                mainScreen += "(";
+
+                break;
+
+            case FECHA_PARENTESES:
+
+                tree.addNode(')');
+                mainScreen += ")";
+                tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+                if (mainScreen.matches(".*[0-9]+[[^0-9]&&[^.]][0-9]+")) {
+                    // regex: tem número, operadorMatematico e termina com numero
+                    double res = tree.calculateTree();
+                    String result;
+                    if (String.valueOf(res).matches(".*[.0]") ) {
+                        result = String.valueOf((long) res);
+                    }
+                    else {
+                        result = String.valueOf(res);
+                    }
+
+                    auxiliarView = result;
+                }
+                tree.removeLastAddedNode();
+        }
+
+
+
+
+
+
+
+
+
+
+        if (operacao == PONTO) {
+
             if(mainScreen.matches(".*[[^0-9]&&[^.]]") || mainScreen.matches("")) {
                 mainScreen += "0";
             }
@@ -246,6 +422,41 @@ public class MainActivity extends AppCompatActivity {
         currentNumberDecimal = "0.";
 
     }
+/*    private void operation(char op) {
+
+        if (op == 'p') {
+
+            if(mainScreen.matches(".*[[^0-9]&&[^.]]") || mainScreen.matches("")) {
+                mainScreen += "0";
+            }
+            if (mainScreen.matches(".*[[^0-9]&&[^.]][0-9]*|[0-9]*")) {
+                mainScreen += ".";
+                decimalFlag = true;
+            }
+            return;
+        }
+
+        if (mainScreen.matches("[0-9].*")) {
+
+            tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
+
+
+            if (mainScreen.matches(".*[[^0-9]&&[^.]]")) {
+                // último dígito foi um op
+
+                mainScreen = mainScreen.substring(0,mainScreen.length()-1);
+                tree.removeLastAddedNode();
+            }
+
+            mainScreen += String.valueOf(op);
+            tree.addNode(op);
+            currentNumber = 0;
+        }
+        //lastDigit = 'o';
+        decimalFlag = false;
+        currentNumberDecimal = "0.";
+
+    }*/
 
     private void operation(int num) {
 
@@ -283,7 +494,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     tree.addNode(currentNumber + Double.valueOf(currentNumberDecimal));
 
-                    double res = tree.calculateTree();
+                     double res = tree.calculateTree();
                     String result;
                     //if (mainScreen.matches(".*[/].*") || mainScreen.matches(".*[.].*")) {
                     if (String.valueOf(res).matches(".*[.0]") ) {
@@ -329,7 +540,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //todo: o que acontece se apagar mais de um operador?
+    //todo: o que acontece se apagar mais de um operadorMatematico?
 
     //todo: mudar string para view ficar ...2312+432 e tals quando exceder tamanho da view
 

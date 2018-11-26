@@ -1,3 +1,5 @@
+package operationTree;
+
 public class DivideNode extends OpNode{
 
     public DivideNode() {

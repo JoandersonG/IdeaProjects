@@ -1,3 +1,5 @@
+package operationTree;
+
 /**
  * Created by joanderson on 12/08/18.
  */
@@ -6,8 +8,8 @@ public abstract class Node{
 
     private Node father;
     protected final char value;
-    // for number nodes value = 'n';
-    // for operation nodes (+,-,*,/) value = the operator
+    // for number operationTree.nodes value = 'n';
+    // for operation operationTree.nodes (+,-,*,/) value = the operator
     // for parenthesis value = '('
 
     Node(char value) {

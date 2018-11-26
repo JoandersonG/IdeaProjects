@@ -1,3 +1,5 @@
+package operationTree;
+
 public class NumNode extends Node {
 
     private double number;

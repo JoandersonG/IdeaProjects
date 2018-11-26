@@ -1,3 +1,5 @@
+package operationTree;
+
 public class AddTree {
 
     static Node root;
@@ -16,46 +18,46 @@ public class AddTree {
 
             //last added node is a parenthesis
 
-            ((ParenNode) lastAddedNode).addNo(number);
+            ((operationTree.ParenNode) lastAddedNode).addNo(number);
         }
 
         //then last added node is an operator
 
-        NumNode node = new NumNode(number);
+        operationTree.NumNode node = new operationTree.NumNode(number);
         node.setFather(lastAddedNode);
-        ((OpNode) lastAddedNode).setRight(node);
+        ((operationTree.OpNode) lastAddedNode).setRight(node);
     }
 
     public static void addNode(char operation) {
 
         if(isParenthesis && operation != ')') {
-            ParenNode pn = (ParenNode) lastAddedNode;
+            operationTree.ParenNode pn = (operationTree.ParenNode) lastAddedNode;
             pn.addNo(operation);
             return;
         }
 
         if (operation == '(') {
-            ParenNode pn = new ParenNode();
+            operationTree.ParenNode pn = new operationTree.ParenNode();
             addParenNode(pn);
             isParenthesis = true;
             return;
         }
 
         if (operation == '+' || operation == '-') {
-            OpNode op = new OpNode(operation);
+            operationTree.OpNode op = new operationTree.OpNode(operation);
             addPlusSubNode(op);
             return;
         }
 
         if (operation == '*' || operation == '/') {
-            OpNode op = new OpNode(operation);
+            operationTree.OpNode op = new operationTree.OpNode(operation);
             addDivideMultiNode(op);
             return;
         }
 
         //it's a parenthesis closure
 
-        ParenNode pn = (ParenNode) lastAddedNode;
+        operationTree.ParenNode pn = (operationTree.ParenNode) lastAddedNode;
 
         if (pn.lastAddedNode().getValue() == '(') {
 
@@ -71,31 +73,31 @@ public class AddTree {
 
     }
 
-    private void addParenNode(ParenNode node) {
+    private void addParenNode(operationTree.ParenNode node) {
         //this.size++;
         if (root == null) {
             root = node;
             return;
         }
 
-        ((OpNode)lastAddedNode).setRight(node);
+        ((operationTree.OpNode)lastAddedNode).setRight(node);
     }
 
-    private void addNumNode(NumNode node) {
+    private void addNumNode(operationTree.NumNode node) {
         //todo: this.size++;
         if (root == null) {
             root = node;
             return;
         }
 
-        // lastAddedNode is necessarily an OpNode
+        // lastAddedNode is necessarily an operationTree.OpNode
 
-        ((OpNode)lastAddedNode).setRight(node);
+        ((operationTree.OpNode)lastAddedNode).setRight(node);
     }
 
-    private void addPlusSubNode(OpNode node) {
+    private void addPlusSubNode(operationTree.OpNode node) {
 
-        //the way add and subtraction nodes work in the tree is similar to each other
+        //the way add and subtraction operationTree.nodes work in the tree is similar to each other
 
         //this.size++;
         if (root == null) {
@@ -109,8 +111,8 @@ public class AddTree {
         return;
     }
 
-    private void addDivideMultiNode(OpNode node) {
-        //the way divide and multiplication nodes work in the tree is similar to each other
+    private void addDivideMultiNode(operationTree.OpNode node) {
+        //the way divide and multiplication operationTree.nodes work in the tree is similar to each other
         //this.size++;
         if (root == null) {
             root = node;

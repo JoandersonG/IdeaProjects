@@ -1,17 +1,17 @@
-package entities;
+package bar;
 
 public class Produto {
     private int codigo;
     private String nome;
     private int tipo;
-    private double preco;
+    private Double preco;
     private boolean disponibilidade;
 
     public Produto(int codigo, String nome, int tipo) {
-        this(codigo,nome,tipo,0,false);
+        this(codigo,nome,tipo,null,false);
     }
 
-    public Produto(int codigo, String nome, int tipo, double preco, boolean disponiblidade) {
+    public Produto(int codigo, String nome, int tipo, Double preco, boolean disponiblidade) {
         this.codigo = codigo;
         this.nome = nome;
         this.tipo = tipo;
@@ -43,11 +43,11 @@ public class Produto {
         this.tipo = tipo;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
@@ -57,5 +57,15 @@ public class Produto {
 
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
+    }
+
+    @Override
+    public String toString() {
+        String ret = "Código: " + codigo + "\nNome: " + nome + "\nTipo: " + tipo;
+        if (preco != null) {
+            ret += "\nPreço: " + preco;
+        }
+        ret += "\nDisponibilidade: " + disponibilidade;
+        return ret;
     }
 }

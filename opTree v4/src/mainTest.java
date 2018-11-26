@@ -1,3 +1,5 @@
+import operationTree.Tree;
+
 public class mainTest {
 
     public static void main(String[] args) {
@@ -30,6 +32,7 @@ public class mainTest {
         op.removeLastAddedNode();
         op.removeLastAddedNode();
         op.removeLastAddedNode();
+        asa
 
     // ((3+5)*10)*5
         System.out.println(op.calculateTree());

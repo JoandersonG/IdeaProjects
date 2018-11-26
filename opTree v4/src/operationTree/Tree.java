@@ -1,4 +1,4 @@
-
+package operationTree;
 //package com.example.joanderson.calculadora.treePackage;
 
 /**
@@ -55,16 +55,16 @@ public class Tree {
         return lastAddedNode(node.getRight());
     }
 
-    public void addNode(double number) {
+    /*public void addNode(double number) {
         if (isParenthesis) {
 
             //last added node is a parenthesis
 
-            ((ParenNode) lastAddedNode()).addNo(number);
+            ((operationTree.ParenNode) lastAddedNode()).addNo(number);
             return;
         }
 
-        NumNode node = new NumNode(number);
+        operationTree.NumNode node = new operationTree.NumNode(number);
 
         if (lastAddedNode() == null) {
             root = node;
@@ -74,41 +74,41 @@ public class Tree {
 
         //then last added node is an operator
 
-        Node lastAdded = lastAddedNode();
+        operationTree.Node lastAdded = lastAddedNode();
         node.setFather(lastAdded);
-        ((OpNode) lastAdded).setRight(node);
+        ((operationTree.OpNode) lastAdded).setRight(node);
     }
 
     public void addNode(char operation) {
 
         if(isParenthesis && operation != ')') {
-            ParenNode pn = (ParenNode) lastAddedNode();
+            operationTree.ParenNode pn = (operationTree.ParenNode) lastAddedNode();
             pn.addNo(operation);
             return;
         }
 
         if (operation == '(') {
-            ParenNode pn = new ParenNode();
+            operationTree.ParenNode pn = new operationTree.ParenNode();
             addParenNode(pn);
             isParenthesis = true;
             return;
         }
 
         if (operation == '+' || operation == '-') {
-            OpNode op = new OpNode(operation);
+            operationTree.OpNode op = new operationTree.OpNode(operation);
             addPlusSubNode(op);
             return;
         }
 
         if (operation == '*' || operation == '/') {
-            OpNode op = new OpNode(operation);
+            operationTree.OpNode op = new operationTree.OpNode(operation);
             addDivideMultiNode(op);
             return;
         }
 
         //it's a parenthesis closure
 
-        ParenNode pn = (ParenNode) lastAddedNode();
+        operationTree.ParenNode pn = (operationTree.ParenNode) lastAddedNode();
 
         if (pn.lastAddedNode().getValue() == '(') {
 
@@ -124,35 +124,35 @@ public class Tree {
 
     }
 
-    private void addParenNode(ParenNode node) {
+    private void addParenNode(operationTree.ParenNode node) {
         this.size++;
         if (root == null) {
             root = node;
             return;
         }
 
-        // lastAddedNode is necessarily an OpNode
-        OpNode last = (OpNode) lastAddedNode();
+        // lastAddedNode is necessarily an operationTree.OpNode
+        operationTree.OpNode last = (operationTree.OpNode) lastAddedNode();
         last.setRight(node);
         node.setFather(last);
     }
 
-    private void addNumNode(NumNode node) {
+    private void addNumNode(operationTree.NumNode node) {
         this.size++;
         if (root == null) {
             root = node;
             return;
         }
 
-        // lastAddedNode is necessarily an OpNode
-        OpNode last = (OpNode) lastAddedNode();
+        // lastAddedNode is necessarily an operationTree.OpNode
+        operationTree.OpNode last = (operationTree.OpNode) lastAddedNode();
         last.setRight(node);
         node.setFather(last);
     }
 
-    private void addPlusSubNode(OpNode node) {
+    private void addPlusSubNode(operationTree.OpNode node) {
 
-        //the way add and subtraction nodes work in the tree is similar to each other
+        //the way add and subtraction operationTree.nodes work in the tree is similar to each other
 
         this.size++;
         if (root == null) {
@@ -166,8 +166,8 @@ public class Tree {
         return;
     }
 
-    private void addDivideMultiNode(OpNode node) {
-        //the way divide and multiplication nodes work in the tree is similar to each other
+    private void addDivideMultiNode(operationTree.OpNode node) {
+        //the way divide and multiplication operationTree.nodes work in the tree is similar to each other
         this.size++;
         if (root == null) {
             root = node;
@@ -176,9 +176,9 @@ public class Tree {
 
         //last added node is a number or parenthesis
 
-        Node lastAddedNode = lastAddedNode();
+        operationTree.Node lastAddedNode = lastAddedNode();
         node.setFather(lastAddedNode.getFather());
-        OpNode lan = (OpNode) lastAddedNode.getFather();
+        operationTree.OpNode lan = (operationTree.OpNode) lastAddedNode.getFather();
         if (lan != null) {
             lan.setRight(node);
         }
@@ -189,7 +189,7 @@ public class Tree {
         node.setLeft(lastAddedNode);
 
     }
-
+*/
     public double calculateTree() {
 
         return calculateTree(this.root);

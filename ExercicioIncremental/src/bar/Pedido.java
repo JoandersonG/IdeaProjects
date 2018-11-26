@@ -1,4 +1,4 @@
-package entities;
+package bar;
 
 public class Pedido {
     private int numero;
@@ -45,6 +45,11 @@ public class Pedido {
 
     public void cancelar() {
         this.status = 9;
+    }
+
+    @Override
+    public String toString() {
+        return "Número: " + numero + "\nStatus: " + status + "\nProduto: " + produto.toString();
     }
 
 }
