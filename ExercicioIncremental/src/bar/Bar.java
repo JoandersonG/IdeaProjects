@@ -1,11 +1,13 @@
 package bar;
 
+import pagamento.FormaPagamento;
+
 import java.util.ArrayList;
 
 public class Bar {
     private static ArrayList <Movimento> movimentos = new ArrayList<>();
     private static ArrayList <Produto> produtos = new ArrayList<>();
-
+    private static ArrayList <FormaPagamento> formaPagamentos = new ArrayList<>();
 
     public static boolean addMovimento(Movimento movimento) {
         boolean didItWork = true;
@@ -47,6 +49,27 @@ public class Bar {
             }
         }
         return didItWork;
+    }
+
+    public static void addFormaPagamento(FormaPagamento formaPagamento) {
+        if (formaPagamento != null) {
+            formaPagamentos.add(formaPagamento);
+        }
+    }
+
+    public static void removeFormaPagamento(int id) {
+        for (FormaPagamento f : formaPagamentos) {
+            if (f.getId() == id) {
+                formaPagamentos.remove(f);
+                break;
+            }
+        }
+    }
+
+    public void listaFormasPagamento() {
+        for (FormaPagamento f : formaPagamentos) {
+            System.out.println(f.toString());
+        }
     }
 
     @Override

@@ -2,43 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdf5473a-7f6b-42dc-80ad-40de15853048" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/bar/Bar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bar/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bar/Especial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bar/VIP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/src/AplicacaoLivraria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/src/Livro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/src/LivroDidatico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/src/Revista.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exercicioFixacao5/src/Titulo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/InsertNode/Insert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/nodes/asa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mainParaPagamentos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pagamento/FormaPagamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pagamento/TipoCredito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pagamento/TipoDebito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pagamento/TipoDinheiro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pagamento/TipoVoucher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidStudioProjects/AppNotcias/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidStudioProjects/AppNotcias/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AndroidStudioProjects/AppNotcias/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidStudioProjects/AppNotcias/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidStudioProjects/Calculadora/app/src/main/java/com/example/joanderson/calculadora/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidStudioProjects/Calculadora/app/src/main/java/com/example/joanderson/calculadora/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidStudioProjects/Calculadora/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidStudioProjects/Calculadora/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ExercicioIncremental/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ExercicioIncremental/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ExercicioIncremental/entities/Movimento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ExercicioIncremental/entities/Pedido.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ExercicioIncremental/entities/Produto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Movimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bar/Movimento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bar/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bar/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/AddTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/AddTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/DivideNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/DivideNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/NumNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/NumNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/OpNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/OpNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/ParenNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/ParenNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/PlusNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/PlusNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/SubNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/SubNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/TimesNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/TimesNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/operationTree/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../opTree v4/src/mainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../opTree v4/src/mainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bar/Bar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bar/Bar.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,36 +24,39 @@
     <session id="321605120">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.44" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.57" value="1" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="8" />
+          <entry key="java" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="8" />
+          <entry key="JAVA" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5614" />
+          <entry key="dummy" value="13" />
+          <entry key="java" value="8003" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5614" />
+          <entry key="JAVA" value="8003" />
+          <entry key="PLAIN_TEXT" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -88,45 +64,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-688">
-              <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bar/Produto.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mainParaPagamentos.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="364">
-              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bar/Pedido.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/bar/Movimento.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#576#577#0" expanded="true" />
-                <element signature="e#607#608#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,69 +79,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bar/Bar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="365">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bar/Cliente.java">
+        <entry file="file://$PROJECT_DIR$/src/pagamento/TipoVoucher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="13" />
+            <state relative-caret-position="615">
+              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding>
+                <element signature="e#471#472#0" expanded="true" />
                 <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#618#619#0" expanded="true" />
+                <element signature="e#655#656#0" expanded="true" />
+                <element signature="e#712#713#0" expanded="true" />
+                <element signature="e#764#765#0" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#840#841#0" expanded="true" />
+                <element signature="e#898#899#0" expanded="true" />
+                <element signature="e#948#949#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bar/Especial.java">
+        <entry file="file://$PROJECT_DIR$/src/pagamento/TipoDinheiro.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-              <folding>
-                <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#523#524#0" expanded="true" />
-                <element signature="e#571#572#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#646#647#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#725#726#0" expanded="true" />
-                <element signature="e#760#761#0" expanded="true" />
-                <element signature="e#792#793#0" expanded="true" />
-                <element signature="e#820#821#0" expanded="true" />
-                <element signature="e#862#863#0" expanded="true" />
-                <element signature="e#896#897#0" expanded="true" />
-                <element signature="e#925#926#0" expanded="true" />
-                <element signature="e#952#953#0" expanded="true" />
-                <element signature="e#990#991#0" expanded="true" />
-                <element signature="e#1022#1023#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bar/VIP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-              <folding>
-                <element signature="e#438#439#0" expanded="true" />
-                <element signature="e#467#468#0" expanded="true" />
-                <element signature="e#511#512#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#657#658#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-                <element signature="e#814#815#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -236,16 +154,25 @@
         <option value="$PROJECT_DIR$/src/bar/Produto.java" />
         <option value="$PROJECT_DIR$/src/bar/Pedido.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/bar/Bar.java" />
         <option value="$PROJECT_DIR$/src/bar/Movimento.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/tipoDebito.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/tipoCredito.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/tipoVoucher.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/TipoCredito.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/TipoDebito.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/TipoVoucher.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/FormaPagamento.java" />
+        <option value="$PROJECT_DIR$/src/bar/Bar.java" />
+        <option value="$PROJECT_DIR$/src/pagamento/TipoDinheiro.java" />
+        <option value="$PROJECT_DIR$/src/mainParaPagamentos.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
-    <option name="width" value="653" />
-    <option name="height" value="773" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="651" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -255,8 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,14 +200,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="bar" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ExercicioIncremental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ExercicioIncremental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pagamento" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542422576404" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543610388803" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -296,7 +229,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.mainParaPagamentos">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ExercicioIncremental" />
@@ -304,8 +237,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="mainParaPagamentos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mainParaPagamentos" />
+      <module name="ExercicioIncremental" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.mainParaPagamentos" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.mainParaPagamentos" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -324,10 +269,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
+    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22390439" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15378486" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -398,7 +343,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bar/Produto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
+        <state relative-caret-position="585">
           <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
         </state>
       </provider>
@@ -410,71 +355,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bar/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bar/Especial.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
+        <state relative-caret-position="495">
           <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding>
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="e#896#897#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1022#1023#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bar/VIP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="315">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bar/Cliente.java">
+    <entry file="file://$PROJECT_DIR$/src/bar/Movimento.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="13" />
-          <folding>
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bar/Bar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-688">
+        <state relative-caret-position="1125">
           <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -482,14 +393,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bar/Movimento.java">
+    <entry file="file://$PROJECT_DIR$/src/pagamento/FormaPagamento.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="409">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pagamento/TipoCredito.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="35" column="21" lean-forward="true" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pagamento/TipoDebito.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pagamento/TipoDinheiro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pagamento/TipoVoucher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding>
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bar/Bar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainParaPagamentos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
