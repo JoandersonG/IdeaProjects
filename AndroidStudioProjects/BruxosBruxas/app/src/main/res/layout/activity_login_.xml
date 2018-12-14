@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:background="@android:color/white"
     tools:context=".activity.Login_Activity">
 
 
@@ -156,7 +156,7 @@
                     android:layout_gravity="bottom"
                     android:layout_marginHorizontal="2dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@drawable/botao"
                     android:text="Cancelar"
                     android:textColor="@android:color/white"
                     app:fontFamily="casual" />
@@ -168,7 +168,7 @@
                     android:layout_gravity="bottom"
                     android:layout_marginHorizontal="2dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@drawable/botao"
                     android:onClick="comprar"
                     android:text="Comprar"
                     android:textColor="@android:color/white"

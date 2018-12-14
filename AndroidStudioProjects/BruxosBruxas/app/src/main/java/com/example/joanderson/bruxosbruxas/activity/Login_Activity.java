@@ -1,7 +1,6 @@
 package com.example.joanderson.bruxosbruxas.activity;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joanderson.bruxosbruxas.R;
+import com.example.joanderson.bruxosbruxas.model.Carrinho;
+import com.example.joanderson.bruxosbruxas.model.Compra;
+import com.example.joanderson.bruxosbruxas.model.cliente.ClienteLoja;
+import com.example.joanderson.bruxosbruxas.model.cliente.Varinha;
+import com.example.joanderson.bruxosbruxas.model.pagamento.Pagamento;
 
 public class Login_Activity extends AppCompatActivity {
 
@@ -20,6 +24,7 @@ public class Login_Activity extends AppCompatActivity {
     private Button buttonComprar,buttonCancelar;
     private Switch entregaTrouxa;
     private TextView valorCompra;
+    private Carrinho carrinho;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +43,49 @@ public class Login_Activity extends AppCompatActivity {
         valorCompra = findViewById(R.id.tvValorFinal);
 
 
+        if (getIntent().hasExtra("carrinho")) {
+            carrinho = (Carrinho) getIntent().getSerializableExtra("carrinho");
+            //todo: catch ClassCast exc
+        }
+
+        String val = "Valor da compra: " + carrinho.getValorTotal().toString();
+        valorCompra.setText(val);
+
+        buttonCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         }
 
         public void comprar(View view) {
-            Intent intent = new Intent(getApplicationContext(),CarrinhoActivity.class);
-            startActivity(intent);
-          /*  if (testeComprar()) {
+
+            if (testeComprar()) {
                 //todo: efetua a compra
+                ClienteLoja cliente = new ClienteLoja(
+                        nome.getText().toString(),
+                        endereco.getText().toString(),
+                        new Varinha(Double.parseDouble(tamanhoVarinha.getText().toString()),
+                                madeiraVarinha.getText().toString(),
+                                nucleoVarinha.getText().toString())
+                    );
+                Compra compra = new Compra(carrinho,cliente,entregaTrouxa.isActivated());
+                Pagamento pagamento = new Pagamento(compra);
+                boolean pagamentoRealizado = pagamento.efetuaPagamento();
+
+                Intent intent = new Intent(getApplicationContext(), CompraConcluidaActivity.class);
+                intent.putExtra("statusPagamento",pagamentoRealizado);
+                startActivity(intent);
+
             }
             else {
                 Toast.makeText(this,"Por favor, preencha todos os campos", Toast.LENGTH_LONG).show();
 
-            }*/
+            }
 
 
 
